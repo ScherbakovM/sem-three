@@ -20,8 +20,6 @@ public class Controller {
 
         } catch (WrongFormat e) {
             System.out.println("Введены не все данные");
-        } catch (DateTimeException d) {
-            System.out.println(d.getMessage());
         } catch (RuntimeException x) {
             throw new RuntimeException(x);
         }

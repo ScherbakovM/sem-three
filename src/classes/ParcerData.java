@@ -62,9 +62,9 @@ public class ParcerData {
     public void parse(List<String> list) {
         for (String elem : list) {
             boolean equals = elem.toLowerCase().equals(elem.toUpperCase());
-            if (equals & !elem.contains(".") & !elem.contains(",") & !elem.contains("-")) {
+            if (equals & !elem.contains(".") & !elem.contains(",") & !elem.contains("-") & !elem.contains("/")) {
                 setPhone(Long.parseLong(elem));
-            } else if (equals & elem.contains("-") | elem.contains(".") | elem.contains(",")) {
+            } else if (equals & elem.contains("-") | elem.contains(".") | elem.contains(",") | elem.contains("/")) {
                 stringToDate(elem);
             } else if (elem.length() == 1) {
                 setGender(elem);
@@ -80,6 +80,11 @@ public class ParcerData {
 
         if(args.contains("-") ) {
             args = args.replace("-", ".");
+        }
+
+        if(args.contains("/") ) {
+            args = args.replace("/", ".");
+            System.out.println(args);
         }
 
         DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
